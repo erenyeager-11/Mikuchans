@@ -14,7 +14,7 @@
 }
 
 body{
-  background:linear-gradient(135deg,#ffe6f0,#e8faff);
+  background:linear-gradient(135deg,#ffd6e8,#e0f7fa);
   height:100vh;
   overflow:hidden;
 }
@@ -25,71 +25,50 @@ body{
   width:100%;
   padding:30px;
   text-align:center;
+  animation:fade 0.8s ease;
 }
 
-.active{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  animation:softFade 1.2s ease;
-}
+.active{display:flex;flex-direction:column;justify-content:center;align-items:center;}
 
-@keyframes softFade{
-  from{opacity:0;transform:scale(0.96) translateY(25px)}
-  to{opacity:1;transform:scale(1) translateY(0)}
+@keyframes fade{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
 button{
-  padding:14px 34px;
+  padding:14px 30px;
   border:none;
-  border-radius:40px;
-  background:linear-gradient(135deg,#ff6fae,#ff92c2);
+  border-radius:30px;
+  background:#ff5fa2;
   color:white;
   font-size:18px;
   cursor:pointer;
-  box-shadow:0 12px 30px rgba(0,0,0,0.18);
-  transition:0.4s ease;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
-button:hover{
-  transform:scale(1.08);
-  box-shadow:0 16px 35px rgba(0,0,0,0.25);
-}
+button:hover{transform:scale(1.05)}
 
 img{
-  max-width:240px;
-  border-radius:25px;
-  margin:25px 0;
-  animation:float 4s ease-in-out infinite;
-}
-
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
+  max-width:250px;
+  border-radius:20px;
+  margin:20px 0;
 }
 
 .text{
   font-size:18px;
-  line-height:1.7;
-  color:#444;
+  line-height:1.6;
+  color:#333;
 }
 
 .urdu{
-  font-size:24px;
+  font-size:22px;
   font-family:serif;
-  margin-bottom:18px;
-  animation:glow 3s ease-in-out infinite;
-}
-
-@keyframes glow{
-  0%,100%{opacity:0.8}
-  50%{opacity:1}
+  margin-bottom:15px;
 }
 
 .nav{
   position:fixed;
-  bottom:18px;
+  bottom:20px;
   width:100%;
   display:flex;
   justify-content:space-between;
@@ -103,33 +82,34 @@ img{
 <!-- START -->
 <div class="page active" id="start">
   <h2>Hey Dhawni 🌸</h2>
-  <p class="text" style="margin:16px 0;">
-    Something honest, gentle  
-    and only meant for you 💗
+  <p class="text" style="margin:15px 0;">
+    There's something from the heart,  
+    soft, honest and only for you.
   </p>
-  <button onclick="next()">Tap to Begin ✨</button>
+  <button onclick="next()">Tap Here 💗</button>
 </div>
 
 <!-- PAGE 1 -->
 <div class="page" id="p1">
   <img src="cat.jpg" alt="cute cat">
   <p class="text">
-    Hi you 🐾<br>
-    A soft hello from the heart,<br>
-    simple, humble and warm.<br>
-    Please read it slowly 🌷
+    Hey you 🌷<br>
+    This is a small humble greeting,<br>
+    wrapped in honesty and warmth.<br>
+    Please read it with a soft heart 💕
   </p>
 </div>
 
 <!-- PAGE 2 CONFESSION -->
 <div class="page" id="p2">
   <p class="text">
-    Dhawni,<br>
-    Somewhere between normal talks,<br>
-    you became something special 🌙<br>
-    Your presence feels calm and safe.<br>
-    I smile without trying when it’s you.<br>
-    Maybe this is what liking you feels like 💕
+    Dhawni,  
+    I don’t know when it happened,<br>
+    but you slowly became my comfort 🌙<br>
+    Your presence feels calm, safe and warm.<br>
+    Talking to you makes everything lighter.<br>
+    I smile more when your name appears.<br>
+    Maybe this is what liking someone truly feels like 💗
   </p>
 </div>
 
@@ -137,12 +117,12 @@ img{
 <div class="page" id="p3">
   <img src="sorry.jpg" alt="sorry">
   <p class="text">
-    I’m really sorry Dhawni 🤍<br>
-    For the mistakes I couldn’t fix earlier.<br>
+    I’m really sorry Dhawni 🕊️<br>
+    For the mistakes, the silence, the hurt I caused.<br>
     I only love you baccha, I love you so much.<br>
-    You stay in my thoughts, always.<br>
+    I only think about you, you stay in my thoughts.<br>
     You are mashallah, you are everything to me.<br>
-    Please forgive me softly 🌸
+    Please forgive me with your beautiful heart 🤍
   </p>
 </div>
 
@@ -152,23 +132,24 @@ img{
     تیری آنکھوں کے سوا دنیا میں رکھا کیا ہے
   </p>
   <p class="text">
-    Your eyes speak comfort ✨<br>
-    Your cuteness feels natural and pure.<br>
-    Your smile heals silent moments.<br>
-    Your presence feels peaceful.<br>
-    You are beautifully you 💖
+    Your eyes carry softness I can’t explain ✨<br>
+    Your cuteness comes naturally, effortlessly.<br>
+    Your smile fixes broken moments.<br>
+    Your presence feels peaceful and pure.<br>
+    You are beautiful in the most gentle way 💖
   </p>
 </div>
 
 <!-- PAGE 5 CLOSURE -->
 <div class="page" id="p5">
   <p class="text">
-    All I want is one chance 🌷<br>
-    To make things right, honestly.<br><br>
+    All I want is one chance 🌸<br>
+    To make things right, slowly and sincerely.<br><br>
     — AYAN
   </p>
 </div>
 
+<!-- NAV -->
 <div class="nav">
   <button onclick="prev()">⬅</button>
   <button onclick="next()">➡</button>
