@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Dhawni 💗</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#ffe6f0,#e8faff);
+  height:100vh;
+  overflow:hidden;
+}
+
+.page{
+  display:none;
+  height:100vh;
+  width:100%;
+  padding:30px;
+  text-align:center;
+}
+
+.active{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  animation:softFade 1.2s ease;
+}
+
+@keyframes softFade{
+  from{opacity:0;transform:scale(0.96) translateY(25px)}
+  to{opacity:1;transform:scale(1) translateY(0)}
+}
+
+button{
+  padding:14px 34px;
+  border:none;
+  border-radius:40px;
+  background:linear-gradient(135deg,#ff6fae,#ff92c2);
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:0 12px 30px rgba(0,0,0,0.18);
+  transition:0.4s ease;
+}
+
+button:hover{
+  transform:scale(1.08);
+  box-shadow:0 16px 35px rgba(0,0,0,0.25);
+}
+
+img{
+  max-width:240px;
+  border-radius:25px;
+  margin:25px 0;
+  animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+
+.text{
+  font-size:18px;
+  line-height:1.7;
+  color:#444;
+}
+
+.urdu{
+  font-size:24px;
+  font-family:serif;
+  margin-bottom:18px;
+  animation:glow 3s ease-in-out infinite;
+}
+
+@keyframes glow{
+  0%,100%{opacity:0.8}
+  50%{opacity:1}
+}
+
+.nav{
+  position:fixed;
+  bottom:18px;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:0 30px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- START -->
+<div class="page active" id="start">
+  <h2>Hey Dhawni 🌸</h2>
+  <p class="text" style="margin:16px 0;">
+    Something honest, gentle  
+    and only meant for you 💗
+  </p>
+  <button onclick="next()">Tap to Begin ✨</button>
+</div>
+
+<!-- PAGE 1 -->
+<div class="page" id="p1">
+  <img src="cat.jpg" alt="cute cat">
+  <p class="text">
+    Hi you 🐾<br>
+    A soft hello from the heart,<br>
+    simple, humble and warm.<br>
+    Please read it slowly 🌷
+  </p>
+</div>
+
+<!-- PAGE 2 CONFESSION -->
+<div class="page" id="p2">
+  <p class="text">
+    Dhawni,<br>
+    Somewhere between normal talks,<br>
+    you became something special 🌙<br>
+    Your presence feels calm and safe.<br>
+    I smile without trying when it’s you.<br>
+    Maybe this is what liking you feels like 💕
+  </p>
+</div>
+
+<!-- PAGE 3 APOLOGY -->
+<div class="page" id="p3">
+  <img src="sorry.jpg" alt="sorry">
+  <p class="text">
+    I’m really sorry Dhawni 🤍<br>
+    For the mistakes I couldn’t fix earlier.<br>
+    I only love you baccha, I love you so much.<br>
+    You stay in my thoughts, always.<br>
+    You are mashallah, you are everything to me.<br>
+    Please forgive me softly 🌸
+  </p>
+</div>
+
+<!-- PAGE 4 PRAISE -->
+<div class="page" id="p4">
+  <p class="urdu">
+    تیری آنکھوں کے سوا دنیا میں رکھا کیا ہے
+  </p>
+  <p class="text">
+    Your eyes speak comfort ✨<br>
+    Your cuteness feels natural and pure.<br>
+    Your smile heals silent moments.<br>
+    Your presence feels peaceful.<br>
+    You are beautifully you 💖
+  </p>
+</div>
+
+<!-- PAGE 5 CLOSURE -->
+<div class="page" id="p5">
+  <p class="text">
+    All I want is one chance 🌷<br>
+    To make things right, honestly.<br><br>
+    — AYAN
+  </p>
+</div>
+
+<div class="nav">
+  <button onclick="prev()">⬅</button>
+  <button onclick="next()">➡</button>
+</div>
+
+<script>
+let pages=document.querySelectorAll('.page');
+let i=0;
+
+function show(){
+  pages.forEach(p=>p.classList.remove('active'));
+  pages[i].classList.add('active');
+}
+
+function next(){
+  if(i<pages.length-1){i++;show();}
+}
+
+function prev(){
+  if(i>0){i--;show();}
+}
+</script>
+
+</body>
+</html>
