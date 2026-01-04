@@ -6,15 +6,11 @@
 <title>For You</title>
 
 <style>
-  *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-  }
+  *{margin:0;padding:0;box-sizing:border-box;}
 
   body{
-    font-family: "Poppins", sans-serif;
-    background: radial-gradient(circle at top , #0d0f18, #05060b);
+    font-family:"Poppins",sans-serif;
+    background:radial-gradient(circle at top,#0d0f18,#05060b);
     color:white;
     display:flex;
     justify-content:center;
@@ -23,11 +19,7 @@
     overflow:hidden;
   }
 
-  .container{
-    text-align:center;
-    width:90%;
-    max-width:700px;
-  }
+  .container{ text-align:center; width:90%; max-width:700px; }
 
   button{
     padding:12px 28px;
@@ -46,40 +38,31 @@
   }
 
   .lamp{
-    width:220px;
-    height:220px;
-    border-radius:50%;
+    width:220px;height:220px;border-radius:50%;
     margin:0 auto 10px;
-    background:radial-gradient(circle,#fff7d1 0%, #ffeaa7 30%, transparent 70%);
+    background:radial-gradient(circle,#fff7d1 0%,#ffeaa7 30%,transparent 70%);
     filter:blur(1px);
     opacity:0;
     transition:1s;
   }
 
-  .show{
-    opacity:1;
-  }
+  .show{opacity:1;}
 
-  .page{
-    animation: fadeIn .8s ease forwards;
-  }
+  .page{animation:fadeIn .8s ease forwards;}
 
   .page img{
     width:180px;
     border-radius:20px;
     margin:12px auto;
     box-shadow:0 10px 25px rgba(0,0,0,.4);
+    display:block;
   }
 
-  .text{
-    line-height:1.6;
-    margin-top:8px;
-    opacity:.95;
-  }
+  .text{line-height:1.6;margin-top:8px;opacity:.95;}
 
   @keyframes fadeIn{
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
   }
 
   .hearts span{
@@ -87,7 +70,7 @@
     bottom:-20px;
     color:#ff4b6e;
     font-size:18px;
-    animation: floatUp 6s linear infinite;
+    animation:floatUp 6s linear infinite;
     opacity:.35;
   }
 
@@ -96,17 +79,14 @@
     to{transform:translateY(-120vh);}
   }
 
-  .credits-wrapper{
-    position:relative;
-    height:70vh;
-    overflow:hidden;
-  }
+  .credits-wrapper{position:relative;height:70vh;overflow:hidden;}
 
   .credits{
     position:absolute;
     bottom:-100%;
     width:100%;
-    animation: scrollCredits 22s linear forwards;
+    animation:scrollCredits 22s linear forwards;
+    text-align:center;
   }
 
   @keyframes scrollCredits{
@@ -114,10 +94,7 @@
     to{bottom:105%;}
   }
 
-  .sig{
-    margin-top:16px;
-    opacity:.85;
-  }
+  .sig{margin-top:16px;opacity:.85;}
 </style>
 </head>
 
@@ -130,8 +107,8 @@
   <div class="lamp" id="lamp"></div>
 </div>
 
-<audio id="song1" src="song1.mp3"></audio>
-<audio id="song2" src="song2.mp3"></audio>
+<audio id="song1" src="song1.mp3" loop></audio>
+<audio id="song2" src="song2.mp3" loop></audio>
 
 <script>
 const openBtn = document.getElementById("openBtn");
@@ -141,63 +118,52 @@ const content = document.getElementById("content");
 let page = 0;
 
 const pages = [
-  {img:"cat1", text:`Hey, just something soft for tonight.`},
-  {img:"cat2", text:`You have a quiet kind of charm. It feels calm.`},
-  {img:"cat3", text:`You make normal days feel a little lighter and warmer.`},
-  {img:"cat4", text:`Your smile, your thoughts, even your little chaos feels beautiful.`},
+  {img:"cat1.jpg", text:`Hey, just something soft for tonight.`},
+  {img:"cat2.jpg", text:`You have a quiet kind of charm. It feels calm.`},
+  {img:"cat3.jpg", text:`You make normal days feel a little lighter and warmer.`},
+  {img:"cat4.jpg", text:`Your smile, your thoughts, even your little chaos feels beautiful.`},
 
-  {img:"cat5", text:`You say you are toxic. But no. You simply protect your heart.  
-You try to look like a red flag. But you are the safest place.  
-Outside you look okay. Inside you hold storms.  
+  {img:"cat5.jpg", text:`You say you are toxic. But no. You simply protect your heart.
+You try to look like a red flag. But you are the safest place.
+Outside you look okay. Inside you hold storms.
 And still you stay gentle. That is rare.`},
 
-  {img:"cat6", text:`You are not toxic. You are healing.  
-You learned to be strong quietly.  
-You are really cute in your own way.  
-I have never seen you. I do not even know your name.  
-Yet somehow I wish softness for you.  
-And yeah, a little like Mikasa.`},
+  {img:"cat6.jpg", text:`You are not toxic. You are healing.
+You learned to be strong quietly.
+You are really cute in your own way.
+I do not even know your name — but I wish softness for you.`},
 
   {credits:true}
 ];
 
-const s1 = document.getElementById("song1");
-const s2 = document.getElementById("song2");
+function playMusic() {
+  const s1 = document.getElementById("song1");
+  const s2 = document.getElementById("song2");
 
-function playSongs() {
-
-  // PAGE 0,1,2 → SONG1
-  if (page <= 2) {
+  // pages 0,1,2 = song1
+  if (page >= 0 && page <= 2) {
     s2.pause();
     s2.currentTime = 0;
-
-    if (s1.paused) {
-      s1.loop = true;
-      s1.play();
-    }
+    s1.play();
   }
 
-  // PAGE 3+ → SONG2
-  else {
+  // page 3 onward = song2
+  if (page >= 3) {
     s1.pause();
     s1.currentTime = 0;
-
-    if (s2.paused) {
-      s2.loop = true;
-      s2.play();
-    }
+    s2.play();
   }
 }
 
 function showPage(){
   content.innerHTML = "";
 
-  if(page < pages.length-1){
+  if (page < pages.length - 1){
     const p = document.createElement("div");
     p.className = "page";
 
     p.innerHTML = `
-      <img src="${pages[page].img}.jpg">
+      <img src="${pages[page].img}">
       <p class="text">${pages[page].text}</p>
       <br>
       <button onclick="next()">Next</button>
@@ -210,39 +176,30 @@ function showPage(){
         <div class="credits">
           <h2>For someone who deserves softer days</h2>
           <p class="text">
-          I hope life feels lighter for you.  
-          I hope you find peace in small moments.  
-          I hope your heart gets the kindness it gives.  
-          Some feelings do not need to be spoken loudly.  
-          Sometimes they are meant to be understood quietly.
+          I hope life feels lighter for you.<br>
+          I hope you find peace in small moments.<br>
+          I hope your heart gets the kindness it gives.<br>
+          Sometimes feelings are meant to be understood quietly.
           </p>
-
-          <h3 class="sig">-EREN</h3>
+          <h3 class="sig">- EREN</h3>
           <p class="sig">maybe one day you will read between the lines</p>
         </div>
       </div>
     `;
   }
 
-  playSongs();
+  playMusic();
 }
 
 function next(){
   page++;
-  if(page >= pages.length) page = pages.length - 1;
   showPage();
 }
 
 openBtn.addEventListener("click", ()=>{
   lamp.classList.add("show");
-
-  s1.currentTime = 0;
-  s1.loop = true;
-  s1.play();
-
-  setTimeout(()=>{
-    showPage();
-  },900);
+  document.getElementById("song1").play();
+  setTimeout(()=> showPage(), 900);
 });
 
 setInterval(()=>{
