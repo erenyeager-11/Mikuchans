@@ -1,206 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Dhawni 💗</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For You</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: "Poppins", system-ui, -apple-system, sans-serif;
+    background:#0a0c12;
+    color:#f5f5f5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+  }
 
-body{
-  background:linear-gradient(135deg,#ffe6f0,#e8faff);
-  height:100vh;
-  overflow:hidden;
-}
+  .container{width:100%;max-width:520px;padding:18px 14px 26px;}
 
-.page{
-  display:none;
-  height:100vh;
-  width:100%;
-  padding:30px;
-  text-align:center;
-}
+  .card{
+    background:rgba(20,25,40,.8);
+    border-radius:22px;
+    padding:18px 18px 22px;
+    box-shadow:0 15px 40px rgba(0,0,0,.45);
+  }
 
-.active{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  animation:softFade 1.2s ease;
-}
+  .center{text-align:center}
 
-@keyframes softFade{
-  from{opacity:0;transform:scale(0.96) translateY(25px)}
-  to{opacity:1;transform:scale(1) translateY(0)}
-}
+  button{
+    width:100%;
+    margin-top:18px;
+    border:none;
+    border-radius:18px;
+    padding:14px 10px;
+    font-size:1rem;
+    font-weight:600;
+    background:linear-gradient(135deg,#394565,#1d2235);
+    color:white;
+  }
+  button:active{transform:scale(.98)}
 
-button{
-  padding:14px 34px;
-  border:none;
-  border-radius:40px;
-  background:linear-gradient(135deg,#ff6fae,#ff92c2);
-  color:white;
-  font-size:18px;
-  cursor:pointer;
-  box-shadow:0 12px 30px rgba(0,0,0,0.18);
-  transition:0.4s ease;
-}
+  .hidden{display:none}
 
-button:hover{
-  transform:scale(1.08);
-}
+  .street{
+    width:100%;
+    height:180px;
+    border-radius:18px;
+    margin-bottom:14px;
+    background:radial-gradient(circle at top,#ffd96633 0%,#ffd96605 40%,transparent 65%), 
+               linear-gradient(#0c0f18,#0a0c12);
+    position:relative;
+  }
+  .street::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    transform:translateX(-50%);
+    width:8px;
+    height:110%;
+    background:#222732;
+    border-radius:8px;
+  }
 
-img{
-  max-width:240px;
-  border-radius:25px;
-  margin:25px 0;
-  animation:float 4s ease-in-out infinite;
-}
+  img{
+    width:100%;
+    border-radius:16px;
+    margin:14px 0 10px;
+    object-fit:cover;
+  }
 
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
-}
-
-.text{
-  font-size:18px;
-  line-height:1.7;
-  color:#444;
-}
-
-.urdu{
-  font-size:24px;
-  font-family:serif;
-  margin-bottom:18px;
-}
-
-.nav{
-  position:fixed;
-  bottom:18px;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  padding:0 30px;
-}
+  p{line-height:1.55;margin:10px 0}
+  .footer-hint{opacity:.65;font-size:.8rem;margin-top:6px}
 </style>
 </head>
 
 <body>
+<div class="container">
+  <div class="card" id="startPage">
+    <div class="center">
+      <h2>Tap to Open</h2>
+      <div class="street"></div>
+      <p style="opacity:.8">
+        Something gentle, soft and calm only for you 🌙
+      </p>
+      <button onclick="openStory()">OPEN</button>
+    </div>
+  </div>
 
-<!-- START PAGE -->
-<div class="page active" id="start">
-  <h2>Hey Dhawni 🌸</h2>
-  <p class="text" style="margin:16px 0;">
-    Something honest, gentle  
-    and only meant for you 💗
-  </p>
-  <button onclick="next()">Tap to Begin ✨</button>
+  <div class="card hidden" id="story">
+    <div id="pageContent"></div>
+    <button id="nextBtn" onclick="nextPage()">Next</button>
+    <div class="footer-hint" id="hint"></div>
+  </div>
 </div>
 
-<!-- PAGE 1 -->
-<div class="page">
-  <img src="cat.jpg" alt="cute cat">
-  <p class="text">
-    Hi you 🐾<br>
-    A soft hello from the heart,<br>
-    simple, humble and warm.<br>
-    Please read it slowly 🌷
-  </p>
-</div>
-
-<!-- PAGE 2 -->
-<div class="page">
-  <p class="text">
-    Dhawni,<br>
-    Somewhere between normal talks,<br>
-    you became something special 🌙<br>
-    Your presence feels calm and safe.<br>
-    I smile without trying when it’s you.<br>
-    Maybe this is what liking you feels like 💕
-  </p>
-</div>
-
-<!-- PAGE 3 -->
-<div class="page">
-  <img src="sorry.jpg" alt="sorry">
-  <p class="text">
-    I’m really sorry Dhawni 🤍<br>
-    For the mistakes I couldn’t fix earlier.<br>
-    I only love you baccha, I love you so much.<br>
-    You stay in my thoughts, always.<br>
-    You are mashallah, you are everything to me.<br>
-    Please forgive me softly 🌸
-  </p>
-</div>
-
-<!-- PAGE 4 -->
-<div class="page">
-  <p class="urdu">
-    تیری آنکھوں کے سوا دنیا میں رکھا کیا ہے
-  </p>
-  <p class="text">
-    Your eyes speak comfort ✨<br>
-    Your cuteness feels natural and pure.<br>
-    Your smile heals silent moments.<br>
-    Your presence feels peaceful.<br>
-    You are beautifully you 💖
-  </p>
-</div>
-
-<!-- PAGE 5 -->
-<div class="page">
-  <p class="text">
-    All I want is one chance 🌷<br>
-    To make things right, honestly.<br><br>
-    — AYAN
-  </p>
-</div>
-
-<!-- NAV (hidden on start page automatically) -->
-<div class="nav" id="nav">
-  <button onclick="prev()">⬅</button>
-  <button onclick="next()">➡</button>
-</div>
+<audio id="music" loop></audio>
 
 <script>
-let pages=document.querySelectorAll('.page');
-let nav=document.getElementById('nav');
-let i=0;
+  const music = document.getElementById("music");
 
-function show(){
-  pages.forEach(p=>p.classList.remove('active'));
-  pages[i].classList.add('active');
+  const pages = [
+    {
+      img:"cat1.jpg",
+      text:`Hey, just wanted to send something calm.  
+      No rush. No pressure. Only peaceful vibes. 🌌`
+    },
+    {
+      img:"cat2.jpg",
+      text:`Some people make the world feel softer,  
+      like evening lights on a quiet street.`
+    },
+    {
+      img:"cat3.jpg",
+      text:`You do not need to be louder.  
+      You already shine in your own gentle way.`
+    },
+    {
+      img:"cat4.jpg",
+      text:`You are allowed to rest.  
+      You are allowed to take your time.`
+    },
+    {
+      img:"cat5.jpg",
+      text:`You are not toxic.  
+      Sometimes you are just protecting your heart.  
 
-  // hide arrows on start page
-  if(i===0){
-    nav.style.display="none";
-  }else{
-    nav.style.display="flex";
+      You try to look strong, but inside you care so much.  
+      You try to seem happy, but you hold a lot quietly.  
+
+      You are not a red flag.  
+      You are the soft green light that helps people breathe.`
+    },
+    {
+      img:"cat6.jpg",
+      text:`You are not pretending to be perfect, and that is beautiful.  
+
+      You are cute in a calm, genuine way.  
+      I do not know your name.  
+      I have never seen your face.  
+
+      But if I say something,  
+      you have that Mikasa kind of strength.`
+    },
+    {
+      img:"cat7.jpg",
+      text:`Thank you for existing.  
+      Stay kind. Stay safe. Stay you.  
+
+      Eren`
+    }
+  ];
+
+  let index = 0;
+
+  function playMusicForPage(){
+    if(index <= 3){
+      music.src = "song1.mp3";
+    } else {
+      music.src = "song2.mp3";
+    }
+    music.play().catch(()=>{});
   }
-}
 
-function next(){
-  if(i<pages.length-1){
-    i++;
-    show();
+  function openStory(){
+    document.getElementById("startPage").classList.add("hidden");
+    document.getElementById("story").classList.remove("hidden");
+    playMusicForPage();
+    render();
   }
-}
 
-function prev(){
-  if(i>0){
-    i--;
-    show();
+  function render(){
+    const data = pages[index];
+    const box = document.getElementById("pageContent");
+    box.innerHTML = `
+      <img src="${data.img}" alt="cat" />
+      <p>${data.text}</p>
+    `;
+    document.getElementById("hint").innerText =
+      index < pages.length-1 ? `Page ${index+1} / ${pages.length}` : "Last page";
+    document.getElementById("nextBtn").innerText =
+      index < pages.length-1 ? "Next" : "Finish";
   }
-}
 
-show();
+  function nextPage(){
+    if(index < pages.length-1){
+      index++;
+      playMusicForPage();
+      render();
+    } else {
+      music.pause();
+      music.currentTime = 0;
+      index = 0;
+      document.getElementById("story").classList.add("hidden");
+      document.getElementById("startPage").classList.remove("hidden");
+    }
+  }
 </script>
-
 </body>
 </html>
